@@ -10,11 +10,10 @@ b- Son relativamente iguales. con los timepos que compare, mis tiempos fueron me
 
 c- Vemos que en el codigo original, tiene un tiempo de "0.01xxx" y un valor final = 0, mientras que el codigo con las lineas 11, 12, 19, 20, tiene un tiempo mayor de "2.xxxxx" y el valor final varia entre ejecuciones, como positivos y negativos. 
 La diferencia de tiempo de ejecucion y los resultados entre los dos codigos es por un bucle adicional, lo que aumenta la carga computacional.
-</P>
-<p>
+
 Punto 2:
-Race Condition 
-a- 
+ 
+a- Race Condition
 https://github.com/DinoDetzel/ASO2024TPs/blob/main/TP3/Punto2/con_race_condition.c
 
 b- Diagrama 
