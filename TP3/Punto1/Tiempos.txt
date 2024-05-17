@@ -1,0 +1,108 @@
+
+
+
+------ CON HILOS ------
+
+Este codigo ejecuta tres tareas en paralelo utilizando hilos (threads) en Python.
+
+Descrpcion del codigo:
+
+1- 		Definicion de las tareas:
+	* "tarea_1()": Ejecuta un bucle que repite desde 0 hasta "rango" y luego imprime un mensaje de finalizacion.
+	* "tarea_2()": Duerme el hilo durante 1 segundo y luego imprime un mensaje de finalizacion.
+	* "tarea_3()": Duerme el hilo durante 4 segundos y luego imprime un mensaje de finalizacion.
+
+
+2-		Creacion y inicio de Hilos:
+	* Se crean tres objetos "thread" para ejecutar las tres tareas.
+	* Cada hilo se inicia con el metodo "start()".
+
+
+3- 		Espera a la finalizacion de los hilos:
+	* Se utilizan "join()" en cada hilo para asegurar que el programa principal espere hasta que todos los hilos hayan terminado su ejecucion.
+
+4-		Medicion del Tiempo:
+	* Se mide el tiempo total de ejecucion desde el inicio hasta que todos los hilos terminan usando "time.perf_counter()".
+
+
+Sabemos que "tarea_2" y "tarea_3" usan "time.sleep" y "tarea_1" ejecuta un cucle intensivo en CPU. El tiempo total transcurrido deberia ser aproximadamente el tiempo que tarda la tarea mas larga, que en este caso es "tarea_3". Alrededor de 4 segundos + el pequeño tiempo extra que "tarea_1" necesite.
+
+Tiempo transcurrido conhilos.py:
+1- 4.09769 segundos
+2- 4.09028 segundos
+3- 4.03639 segundos
+4- 4.05504 segundos
+5- 4.06790 segundos
+
+"4.0xxxx" --> Representa el tiempo total, con pequeñas variaciones dependiendo del rendimiento del sistema y la carga en ese moemnto.
+
+Este codigo utiliza hilos en Python para ejecutar multiples tareas en paralelo. Las tareas de "sleep" son menos intensivas en CPU y, por lo tanto, permiten que otros hilos puedan ejecutar en paralelo sin mayores incoveninetes, mientras que la tarea con el bucle demuestra el uso intesivo de CPU.
+
+
+
+------ SIN HILOS ------
+
+En este codigo todas las tareas se ejecutan de manera secuencial en lugar de en paralelo.
+
+Descripcion del Codigo.
+
+1-		Definicion de las Tareas:
+	* "tarea_1()": Ejecuta un bucle que repite desde 0 hasta "rango" y luego imprime un mensaje de finalizacion.
+	* "tarea_2()": Duerme el hilo durante 1 segundo y luego imprime un mensaje de finalizacion.
+	* "tarea_3()": Duerme el hilo durante 4 segundos y luego imprime un mensaje de finalizacion.
+
+2-		Ejecucion Secuencial de Tareas:
+	* Las tareas se ejecutan una despues de otra en el orden en que se llaman: "tarea_1()", "tarea_2()", "tarea_3()".
+
+3- 		Medicion del Tiempo:
+	* Se mide el tiempo total de ejecucion desde el inicio hasta que todas las tareas hayan terminado usando "time.perf_counter()".
+
+
+Dado que las tareas se ejecutan secuencialmente, el tiempo total sera la suma de los tiempos individuales de cada tarea. el tiempo total sera aproximadamente el tiempo de "tarea_1" + el tiempo de "tarea_2" + el tiempo de "tarea_3".
+
+Tiempo transcurrido sinhilos.py:
+1- 5.13967 segundos
+2- 5.14356 segundos
+3- 5.14349 segundos
+4- 5.14563 segundos
+5- 5.14111 segundos
+
+"5.1xxxx" --> Representa el tiempo total.
+
+Esta version del codigo demuestra como las tareas secuenciales afectan el tiempo total de ejecucion en comparacion con la ejecucion paralela. Al ejecutar las tareas de manera secuencial, el tiempo total es la suma de los tiempos de todas las tareas, mientras que en la ejecución paralela, el tiempo total es aproximadamente el tiempo de la tarea mas larga.
+
+
+
+------ REPUESTAS ------
+
+a- El codigo conhilos.py ejcuta varias tareas en paralelo, las tareas "sleep" permite que otras tareas se puedan ejecutar simultaneamente. Mientras que el codigo sinhilos.py demustra como las tareas secuenciales afectan el tiempo total en comparacion al codigo conhilos.py. El codigo sinhilos.py, el tiempo total es la suma de los tiempos de todas las tareas, mientras el codigo conhilos.py, el tiempo total es aproximademente el tiempo de la tarea mas larga.
+El tiempo del codigo sinhilos.py es mas predecible que el tiempo del codigo conhilos.py, que es menos predecible, pero es menor su tiempo de ejecucion. 
+
+b- Son relativamente iguales. con los timepos que compare, mis tiempos fueron mejores pero por pequeñas diferencias, supongo que es por el rendimiento de mi sistema.
+
+c- Vemos que en el codigo original, tiene un tiempo de "0.01xxx" y un valor final = 0, mientras que el codigo con las lineas 11, 12, 19, 20, tiene un tiempo mayor de "2.xxxxx" y el valor final varia entre ejecuciones, como positivos y negativos. 
+La diferencia de tiempo de ejecucion y los resultados entre los dos codigos es por un bucle adicional, lo que aumenta la carga computacional.
+
+Tiempo transcurrido 
+1- 0.01094 segundos, valor final: 0
+2- 0.01182 segundos, valor final: 0
+3- 0.01096 segundos, valor final: 0
+4- 0.01090 segundos, valor final: 0
+5- 0.01084 segundos, valor final: 0
+6- 0.01046 segundos, valor final: 0
+7- 0.01055 segundos, valor final: 0
+8- 0.01038 segundos, valor final: 0
+9- 0.01142 segundos, valor final: 0
+10- 0.01077 segundos, valor final: 0
+
+Tiempo transcurrido con las lineas 11, 12, 19, 20
+1- 2.44166 segundos, valor final: -489420
+2- 2.44166 segundos, valor final: 486340
+3- 2.53405 segundos, valor final: -487775
+4- 2.45754 segundos, valor final: -487965
+5- 2.54500 segundos, valor final: 432130
+6- 2.62368 segundos, valor final: -406115
+7- 2.61567 segundos, valor final: -219215
+8- 2.50632 segundos, valor final: 77845
+9- 2.77884 segundos, valor final: -490325
+10- 2.54534 segundos, valor final: 454270
