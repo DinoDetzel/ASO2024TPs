@@ -1,8 +1,21 @@
 # Arquitectura de Sistemas Operativos 2024 TUP UTN
 
-<P>
-## Trabajo Practico Nº3
 
+## Trabajo Practico Nº1
+
+Codigo Python en Linux:
+
+![TP1 - Captura de pantalla](https://github.com/DinoDetzel/ASO2024TPs/assets/140660824/6558092e-fd93-45b0-9d4e-62be6727bd3f)
+
+
+## Trabajo Practico Nº2
+
+Generalidades Linux / Git (control de versiones) / GCC (GNU Colección de Compiladores)
+
+![TP2](https://github.com/DinoDetzel/ASO2024TPs/assets/140660824/99e4d705-9c4d-4e22-bce7-21e5ced616bb)
+
+
+## Trabajo Practico Nº3
 
  Punto 1:
  
@@ -26,4 +39,6 @@ a- Race condition:
 b- Diagrama:
 
 ![ImagenDosBCorreccion](https://github.com/DinoDetzel/ASO2024TPs/assets/140660824/e2557015-f8a8-4089-b133-a4084419eb50)
-</p>
+
+
+## Trabajo Practico Nº4
