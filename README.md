@@ -19,5 +19,11 @@ Tanto como el comentado y no comentado realiza el race condition.
 
 Punto 2:
 
+a- Race condition:
 
+![CapturaDosA](https://github.com/DinoDetzel/ASO2024TPs/assets/140660824/b27c9f24-c7d3-4164-a7ff-285dea25206f)
+
+b- Diagrama:
+
+![ImagenDosBCorreccion](https://github.com/DinoDetzel/ASO2024TPs/assets/140660824/e2557015-f8a8-4089-b133-a4084419eb50)
 </p>
