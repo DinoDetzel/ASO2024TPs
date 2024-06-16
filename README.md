@@ -1,4 +1,4 @@
-# Arquitectura de Sistemas Operativos 2024 TUP UTN
+# Arquitectura de Sistemas Operativos 2024 - TUP - UTN
 
 
 ## Trabajo Practico Nº1
@@ -10,14 +10,14 @@ Codigo Python en Linux:
 
 ## Trabajo Practico Nº2
 
-Generalidades Linux / Git (control de versiones) / GCC (GNU Colección de Compiladores)
+Generalidades Linux / Git (control de versiones) / GCC (GNU Colección de Compiladores).
 
 ![TP2](https://github.com/DinoDetzel/ASO2024TPs/assets/140660824/99e4d705-9c4d-4e22-bce7-21e5ced616bb)
 
 
 ## Trabajo Practico Nº3
 
- Punto 1:
+#### Punto 1:
  
  a- El codigo conhilos.py ejcuta varias tareas en paralelo, las tareas "sleep" permite que otras tareas se puedan ejecutar simultaneamente. Mientras que el codigo sinhilos.py demustra como las tareas secuenciales afectan el tiempo total en comparacion al codigo conhilos.py. El codigo sinhilos.py, el tiempo total es la suma de los tiempos de todas las tareas, mientras el codigo conhilos.py, el tiempo total es aproximademente el tiempo de la tarea mas larga.
 El tiempo del codigo sinhilos.py es mas predecible que el tiempo del codigo conhilos.py, que es menos predecible, pero es menor su tiempo de ejecucion. 
@@ -30,7 +30,7 @@ Cuando descomentamos el codigo, un hilo entra en bucle, este se repite 1000 vece
 Tanto como el comentado y no comentado realiza el race condition.
 
 
-Punto 2:
+#### Punto 2:
 
 a- Race condition:
 
@@ -42,3 +42,20 @@ b- Diagrama:
 
 
 ## Trabajo Practico Nº4
+
+#### a- Captura de pantalla: sudo docker-compose ps.
+
+![Captura a](https://github.com/DinoDetzel/ASO2024TPs/assets/140660824/672d59ba-4d00-4b06-814f-08bbdfd4310b)
+
+#### b- Captura de pantalla de los sitios: nginx (http://localhost/) y (http://localhost:8000/).
+
+![Captura b1](https://github.com/DinoDetzel/ASO2024TPs/assets/140660824/b70a48cf-a76a-43fc-ab5f-84530835003f)
+
+![Captura b2](https://github.com/DinoDetzel/ASO2024TPs/assets/140660824/8063d53f-8594-4eef-80d9-77affb0338a4)
+
+#### c- Captura de pantalla del sitio de la facultad corriendo en forma local: (http://localhost/).
+
+![Captura c](https://github.com/DinoDetzel/ASO2024TPs/assets/140660824/613e6da2-54ae-48f1-ada1-766af7d09fe1)
+
+
+## Trabajo Practico Nº5
