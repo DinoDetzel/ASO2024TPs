@@ -1,5 +1,9 @@
-# Arquitectura de Sistemas Operativos 2024 - TUP - UTN
+# Arquitectura de Sistemas Operativos 2024 - TUP
 
+### Profesor: Gustavo Ramoscelli.
+### Ayudante: Sergio Antozzi (Tipazo).
+
+![LogoUTNFRBB](https://github.com/DinoDetzel/ASO2024TPs/assets/140660824/75947f4d-a550-494b-b0a8-e4e0768ad469)
 
 ## Trabajo Practico Nº1
 
