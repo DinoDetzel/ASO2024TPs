@@ -1,0 +1,202 @@
+					---------- Bash Script ----------
+
+					----- Piedra Papel o Tijera -----
+
+
+Consiste en sacar con la mano a la de tres: Piedra, Papel o Tijera.
+
+	REGLAS:
+		* PIEDRA vence a TIJERAS.
+		* TIJERA vence a PAPEL.
+		* PAPEL vence a PIEDRA.
+
+	CODIGO PSEUDOCODIGO:
+		El usuario eleige una opcion (Piedra, Papel o Tijera).
+		La maquina elige otra opcion aletoria.
+			Si la maquina elige PIEDRA:
+				* Si el usuario elige PIEDRA --> EMAPTE
+				* Si el usuario elige PAPEL --> GANA EL USUARIO 
+				* Si el usuario elige TIJERA --> GANA LA MAQUINA
+			Si la maquina elige PAPEL:
+				* Si el usuario elige PIEDRA --> GANA LA MAQUINA
+				* Si el usuario elige PAPEL --> EMPATE 
+				* Si el usuario elige TIJERA --> GANA EL USUARIO
+			Si la maquina elige TIJERA:
+				* Si el usuario elige PIEDRA --> GANA EL USUARIO
+				* Si el usuario elige PAPEL --> GANA LA MAQUINA
+				* Si el usuario elige TIJERA --> EMPATE
+
+	FUNCIONES Y VARIABLES:
+		* En primer lugar, pienso en funcionaldades que pueden llegar a repetirse. Por ejemplo:
+			Proceso de ELECCION.
+			Seleccionar GANADOR.
+			ALMACENAR PARTIDAS.
+		* Tambien pienso en variables que se van a utilizar durante todo el proceso.
+			PIEDRA.
+			PAPEL.
+			TIJERA.
+
+	ESCRIBIENDO SCRIPT:
+		Para hacer el script de shell tenemos que indicar en la primera linea el interprete que ejecutara el 	script o shebang.
+		Despues empezaremos a definir las variables que vamos a necesitar. y por ultimo hacemos las funciones que representan las acciones que van a ser (O pensamos que podrian ser) reutilizadas.
+
+	SINTAXIS:
+		# SHEBANG
+			#! /bin/bash
+		
+		# VARS
+			PIEDRA = 0
+			PAPEL = 1
+			TIJERA = 2
+
+		# FUNCIONES 
+			pedir_dato(){
+			}
+
+			juego(){
+			}
+
+		# INICO
+			pedir_dato
+
+	CODIGO 1:
+		#! /bin/bash
+
+		# Variables
+		PIEDRA=1
+		PAPEL=2
+		TIJERA=3
+
+		eleccion_usuario(){
+			echo "Elige entre las siguintes opciones: "
+			echo "1. Piedra"
+			echo "2. Papel"
+			echo "3. Tijera"
+			read -p "Introduce tu eleccion (0 para salir): " -n 1 eleccion
+
+			if [[ {$eleccion} -eq 0 ]]
+				then
+					echo "¡CHAU CHAU!"
+				exit 0
+			elif [[ {$eleccion} -gt 3 ]]
+				then
+					echo "¡ERROR!, opcion incorrecta "
+					echo "Debes elegir entre 1, 2 y 3."
+					eleccion_usuario
+			fi
+			define_ganador 
+		}
+
+		define_ganador(){
+			eleccion_computadora=$RANDOM%3
+			eleccion_computadora=$(( seleccion_computadora + 1 ))
+			
+			case $eleccion_computadora in		
+				1) echo "La computadora eligio PIEDRA"
+					case $eleccion in 
+						1) 	echo "El usuario eligio PIEDRA"
+							echo "¡EMPATE!, ambos eligieron Piedra"
+							;;
+						2)	echo "El usuario eligio PAPEL"
+							echo "¡GANASTE!, Papel gana a Piedra"
+							;;
+						3)	echo "El usuario eligio TIJERA"
+							echo "¡PERDISTE!, Piedra gana a Tijera"
+							;;
+					esac
+					;;
+				2) echo "La computadora eligio PAPEL"
+					case $eleccion in 
+						1) 	echo "El usuario eligio PIEDRA"
+							echo "¡PERDISTE!, Papel gana a piedra"
+							;;
+						2)	echo "El usuario eligio PAPEL"
+							echo "¡EMPATE!, ambos eligieron Papel"
+							;;
+						3)	echo "El usuario eligio TIJERA"
+							echo "¡GANASTE!, Tijera gana a Papel"
+							;;
+					esac
+					;;
+				3) echo "La computadora eligio TIJERA"
+					case $eleccion in 
+						1) 	echo "El usuario eligio PIEDRA"
+							echo "¡GANASTE!, Piedra gana a Tijera"
+							;;
+						2)	echo "El usuario eligio PAPEL"
+							echo "¡PERDISTE!, Tijera gana a Papel"
+							;;
+						3)	echo "El usuario eligio TIJERA"
+							echo "¡EMPATE!, ambos eligieron Tijera"
+							;;
+					esac
+					;;
+			esac
+			;;
+		}
+
+		eleccion_usuario(){
+		
+		}
+
+
+CODIGO DEFINITIVO:
+
+#!/bin/bash
+
+# Variables
+PIEDRA=1
+PAPEL=2
+TIJERA=3
+
+eleccion_usuario(){
+    echo
+    echo "Elige entre las siguientes opciones: "
+    echo "1. Piedra"
+    echo "2. Papel"
+    echo "3. Tijera"
+    read -p "Introduce tu elección (0 para salir): " -n 1 eleccion
+    echo
+
+    if [[ $eleccion -eq 0 ]]; then
+        echo "¡CHAU CHAU!"
+        exit 0
+    elif [[ $eleccion -gt 3 ]]; then
+        echo -e "\n¡ERROR!, opción incorrecta"
+        echo "Debes elegir entre 1, 2 y 3."
+        eleccion_usuario
+    else
+        define_ganador
+    fi
+}
+
+define_ganador(){
+    eleccion_computadora=$((RANDOM % 3 + 1))
+    
+    case $eleccion_computadora in
+        1) echo -e "\nLa computadora eligió PIEDRA" ;;
+        2) echo -e "\nLa computadora eligió PAPEL" ;;
+        3) echo -e "\nLa computadora eligió TIJERA" ;;
+    esac
+
+    case $eleccion in
+        1) echo "El usuario eligió PIEDRA" ;;
+        2) echo "El usuario eligió PAPEL" ;;
+        3) echo "El usuario eligió TIJERA" ;;
+    esac
+
+    if [[ $eleccion -eq $eleccion_computadora ]]; then
+        echo "¡EMPATE!, ambos eligieron la misma opción"
+    elif [[ ($eleccion -eq 1 && $eleccion_computadora -eq 3) || ($eleccion -eq 2 && $eleccion_computadora -eq 1) || ($eleccion -eq 3 && $eleccion_computadora -eq 2) ]]; then
+        echo "¡GANASTE!"
+    else
+        echo "¡PERDISTE!"
+    fi
+    eleccion_usuario
+}
+
+eleccion_usuario
+
+
+
+
